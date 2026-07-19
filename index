@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Dearest love - Sorry</title>
+  <title>My Dearest love - Sorry ❤️</title>
   <style>
-
-    
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Poppins', sans-serif;
@@ -43,14 +41,6 @@
       0%,100% { transform: translateY(0); }
       50% { transform: translateY(-15px); }
     }
-    .photo {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 15px;
-      margin: 15px 0;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
     .btn {
       background: #ff1493;
       color: white;
@@ -84,12 +74,35 @@
       margin: 20px 0;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
+    .message-bubble {
+      background: #fff0f8;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-left: 8px solid #ff1493;
+    }
+    .heart-tremble {
+      animation: tremble 0.3s infinite;
+    }
+    @keyframes tremble {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+    .kiss {
+      font-size: 30px;
+      animation: kiss 0.8s infinite;
+    }
+    @keyframes kiss {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      ❤️ My Dearest life Line  ❤️
+      ❤️ My Dearest life Line ❤️
     </div>
 
     <div class="content" id="screen1">
@@ -100,17 +113,17 @@
 
     <!-- Screen 2 -->
     <div class="content" id="screen2" style="display:none;">
-     alt="SWEATHEART">
-      <h2 style="color:#ff1493;">I Messed Up, bachha  😢</h2>
+      <h2 style="color:#ff1493;">I Messed Up, bachha 😢</h2>
       <p>But I'm ready to make it right. Will you hear me out?</p>
       <button class="btn" onclick="nextScreen(3)">Listen to my heart ❤️</button>
     </div>
 
-    <!-- More screens... -->
+    <!-- Screen 3 -->
     <div class="content" id="screen3" style="display:none;">
-      <div class="card">
+      <div class="message-bubble">
         <h3>I Know I Hurt You</h3>
         <p>I'm really sorry for that...</p>
+        <p style="margin-top:15px;">Tane mara mate bahu important cho...</p>
       </div>
       <button class="btn" onclick="nextScreen(4)">Next →</button>
     </div>
