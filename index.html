@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dearest love - Sorry ❤️</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9ed3, #ffc1e3);
+      color: #333;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .header {
+      background: #ff69b4;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+    }
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+    .heart {
+      font-size: 40px;
+      animation: float 3s infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .btn {
+      background: #ff1493;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      margin: 15px;
+      border-radius: 50px;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255,20,147,0.4);
+      transition: all 0.3s;
+    }
+    .btn:hover { transform: scale(1.05); }
+    .progress-bar {
+      height: 12px;
+      background: #ddd;
+      border-radius: 10px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+    .progress {
+      height: 100%;
+      background: linear-gradient(to right, #ff69b4, #ff1493);
+      width: 0%;
+      transition: width 1s ease;
+    }
+    .card {
+      background: #fff0f8;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .message-bubble {
+      background: #fff0f8;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-left: 8px solid #ff1493;
+    }
+    .heart-tremble {
+      animation: tremble 0.3s infinite;
+    }
+    @keyframes tremble {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+    .kiss {
+      font-size: 30px;
+      animation: kiss 0.8s infinite;
+    }
+    @keyframes kiss {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      ❤️ My Dearest life Line ❤️
+    </div>
+
+    <div class="content" id="screen1">
+      <h2>I was upset and sent a whole apology letter...</h2>
+      <p style="margin:20px 0; font-size:18px;">Tane me bahu hurt kari che...</p>
+      <button class="btn" onclick="nextScreen(2)">Continue ❤️</button>
+    </div>
+
+    <!-- Screen 2 -->
+    <div class="content" id="screen2" style="display:none;">
+      <h2 style="color:#ff1493;">I Messed Up, bachha 😢</h2>
+      <p>But I'm ready to make it right. Will you hear me out?</p>
+      <button class="btn" onclick="nextScreen(3)">Listen to my heart ❤️</button>
+    </div>
+
+    <!-- Screen 3 -->
+    <div class="content" id="screen3" style="display:none;">
+      <div class="message-bubble">
+        <h3>I Know I Hurt You</h3>
+        <p>I'm really sorry for that...</p>
+        <p style="margin-top:15px;">Tane mara mate bahu important cho...</p>
+      </div>
+      <button class="btn" onclick="nextScreen(4)">Next →</button>
+    </div>
+
+    <!-- Forgiveness Meter -->
+    <div class="content" id="screen4" style="display:none;">
+      <h2 style="color:#ff1493;">FORGIVENESS METER ❤️</h2>
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+      <h3 id="percent">0% FORGIVEN</h3>
+      <p>Tap the heart to heal my heart!</p>
+      <button class="btn" onclick="fillMeter()" style="font-size:50px; padding:10px 30px;">❤️</button>
+    </div>
+
+    <!-- Rewards -->
+    <div class="content" id="screen5" style="display:none;">
+      <h2>Peace Treaty Signed! 🎉</h2>
+      <p>Thank you for being the most forgiving and wonderful person.</p>
+      <p>I love you to the moon and back ❤️</p>
+      <div style="margin:30px 0;">
+        <h3>Your Rewards:</h3>
+        <p>🌸 Fresh Blooms + Unlimited kisses</p>
+        <p>🧸 Cuddle Pass (unlimited hugs)</p>
+        <p>🍫 Sweet Treat + Full attention</p>
+      </div>
+      <button class="btn" onclick="alert('❤️ Tame mara mate bahu important cho! I promise I’ll be better.')">Replay</button>
+    </div>
+  </div>
+
+  <script>
+    let current = 1;
+    let forgiveness = 0;
+
+    function nextScreen(n) {
+      document.getElementById('screen' + current).style.display = 'none';
+      document.getElementById('screen' + n).style.display = 'block';
+      current = n;
+    }
+
+    function fillMeter() {
+      forgiveness += 20;
+      if (forgiveness > 100) forgiveness = 100;
+      document.getElementById('progress').style.width = forgiveness + '%';
+      document.getElementById('percent').textContent = forgiveness + '% FORGIVEN';
+      
+      if (forgiveness >= 100) {
+        setTimeout(() => {
+          nextScreen(5);
+        }, 800);
+      }
+    }
+
+    // Auto start first screen
+    document.getElementById('screen1').style.display = 'block';
+  </script>
+</body>
+</html>
